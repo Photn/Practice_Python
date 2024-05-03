@@ -6,7 +6,6 @@ def gen_sn(n):
     path = (path - np.mean(path)) / np.std(path)
     return path
 
-
 def gen_path(parameter):
     P = parameter['P']
     sigma = parameter['sigma']
