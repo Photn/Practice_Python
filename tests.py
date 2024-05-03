@@ -1,11 +1,10 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import math
 
 def gen_sn(n):
     path = np.random.standard_normal(n)
-    path = (path - np.mean(path)) / np.std(path)
     return path
-
 
 def gen_path(parameter):
     P = parameter['P']
@@ -23,10 +22,14 @@ def gen_path(parameter):
     return path
 
 
-parameter_r = {'sigma': 0.2, 'P': 252*2, 'T': 2.0, 'X0': 100.0, 'r': 0.01, 'I': 100}
+parameter_r = {'sigma': 0.2, 'P': 100, 'T': 1.0, 'X0': 1.0, 'r': 0.01, 'I': 5}
 
 if __name__ == '__main__':
     path1 = gen_path(parameter_r)
-    print(path1)
+    fig, ax = plt.subplots()
+    ax.plot(np.linspace(0, 1., parameter_r['P']+1), path1)
+    pass
+plt.show()
+    
 
 
